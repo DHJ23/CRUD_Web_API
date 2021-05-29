@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBMovieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Movie_Master">
+          <Key>
+            <PropertyRef Name="Movie_id" />
+          </Key>
+          <Property Name="Movie_id" Type="int" Nullable="false" />
+          <Property Name="Movie_name" Type="varchar" MaxLength="50" />
+          <Property Name="Movie_cast" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_User_Master">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="int" Nullable="false" />
+          <Property Name="User_name" Type="varchar" MaxLength="50" />
+          <Property Name="USer_Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DBMovieModelStoreContainer">
+          <EntitySet Name="Tbl_Movie_Master" EntityType="Self.Tbl_Movie_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_User_Master" EntityType="Self.Tbl_User_Master" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBMovieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Movie_Master">
+          <Key>
+            <PropertyRef Name="Movie_id" />
+          </Key>
+          <Property Name="Movie_id" Type="Int32" Nullable="false" />
+          <Property Name="Movie_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Movie_cast" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DBMovieEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Movie_Master" EntityType="Self.Tbl_Movie_Master" />
+          <EntitySet Name="Tbl_User_Master" EntityType="DBMovieModel.Tbl_User_Master" />
+        </EntityContainer>
+        <EntityType Name="Tbl_User_Master">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="Int32" Nullable="false" />
+          <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USer_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBMovieModelStoreContainer" CdmEntityContainer="DBMovieEntities1">
+          <EntitySetMapping Name="Tbl_Movie_Master">
+            <EntityTypeMapping TypeName="DBMovieModel.Tbl_Movie_Master">
+              <MappingFragment StoreEntitySet="Tbl_Movie_Master">
+                <ScalarProperty Name="Movie_id" ColumnName="Movie_id" />
+                <ScalarProperty Name="Movie_name" ColumnName="Movie_name" />
+                <ScalarProperty Name="Movie_cast" ColumnName="Movie_cast" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_User_Master">
+            <EntityTypeMapping TypeName="DBMovieModel.Tbl_User_Master">
+              <MappingFragment StoreEntitySet="Tbl_User_Master">
+                <ScalarProperty Name="USer_Password" ColumnName="USer_Password" />
+                <ScalarProperty Name="User_name" ColumnName="User_name" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
